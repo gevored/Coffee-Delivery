@@ -1,22 +1,20 @@
-import { TitlePaymentWay } from './styles'
+import { TitlePaymentWay, DivTitle } from './styles'
 import IconCash from '../../../assets/Images/IconCash.png'
-
+import { SelectButton } from '../SelectButtons'
 export function PaymentWayBox() {
   return (
     <TitlePaymentWay>
       <div>
-        <img src={IconCash} alt="" />
         <div>
-          <strong>Endereço de Entrega</strong>
-          <p>Informe o endereço onde deseja receber seu pedido</p>
+          <img src={IconCash} alt="" />
+          <DivTitle>
+            <strong>Pagamento</strong>
+            <p>Informe o endereço onde deseja receber seu pedido</p>
+          </DivTitle>
         </div>
-      </div>
-      <div>
-        <select name="payment_way_name" id="payment_way_id">
-          <option value="credit_card">CARTÃO DE CRÉDITO</option>
-          <option value="credit_card">CARTÃO DE DÉBITO</option>
-          <option value="cash">DINHEIRO</option>
-        </select>
+        <div>
+          <SelectButton />
+        </div>
       </div>
     </TitlePaymentWay>
   )
