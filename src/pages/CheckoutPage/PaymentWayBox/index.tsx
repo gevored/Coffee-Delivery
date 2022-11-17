@@ -1,6 +1,6 @@
 import { TitlePaymentWay, DivTitle } from './styles'
 import IconCash from '../../../assets/Images/IconCash.png'
-import { SelectButton } from '../SelectButtons'
+import { SelectButton } from './SelectButtons'
 export function PaymentWayBox() {
   return (
     <TitlePaymentWay>

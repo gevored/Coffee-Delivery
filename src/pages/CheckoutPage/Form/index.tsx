@@ -1,4 +1,4 @@
-import { TitleForm } from '../TitleForm'
+import { TitleForm } from './TitleForm'
 import {
   FormFill,
   InputCEP,

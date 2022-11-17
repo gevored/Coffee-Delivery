@@ -2,7 +2,7 @@ import { CheckoutContainer, CompleteOrderContent } from './styles'
 import { Header } from '../../components/Header'
 import { Form } from './Form'
 import { PaymentWayBox } from './PaymentWayBox'
-
+import { SelectedCoffees } from './SelectedCoffees'
 export function CheckoutPage() {
   return (
     <>
@@ -12,6 +12,7 @@ export function CheckoutPage() {
           <Form />
           <PaymentWayBox />
         </CompleteOrderContent>
+        <SelectedCoffees />
       </CheckoutContainer>
     </>
   )

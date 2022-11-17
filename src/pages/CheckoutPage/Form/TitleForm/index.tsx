@@ -1,5 +1,5 @@
 import { TitleFormContainer } from './styles'
-import OrangePoint from '../../../assets/Images/OrangePoint.png'
+import OrangePoint from '../../../../assets/Images/OrangePoint.png'
 
 export function TitleForm() {
   return (

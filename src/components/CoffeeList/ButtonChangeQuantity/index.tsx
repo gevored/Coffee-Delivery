@@ -1,14 +1,10 @@
-import { ButtonContainer, Button } from './styles'
+import { ButtonContainer } from './styles'
 import Cart from '../../../assets/Images/CartPurple.svg'
+import { IncreaseDecreaseButton } from '../../IncreaseDecreaseButton/index'
 export function ButtonChangeQuantity() {
   return (
     <ButtonContainer>
-      <div>
-        <Button>-</Button>
-        <span>1</span>
-        <Button>+</Button>
-      </div>
-
+      <IncreaseDecreaseButton />
       <span>
         <img src={Cart} alt="" />
       </span>

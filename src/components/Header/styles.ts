@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const HeaderContainer = styled.div`
   width: 100%;
   height: 100px;
+  padding: 0 160px;
+
   background-color: inherit;
   display: flex;
   align-items: center;
@@ -10,7 +12,7 @@ export const HeaderContainer = styled.div`
 
   div {
     display: flex;
-    width: 80%;
+    width: 100%;
     justify-content: space-between;
   }
 `

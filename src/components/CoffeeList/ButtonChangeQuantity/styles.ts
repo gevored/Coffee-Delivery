@@ -19,10 +19,3 @@ export const ButtonContainer = styled.div`
     }
   }
 `
-
-export const Button = styled.button`
-  all: unset;
-
-  color: ${(props) => props.theme['purple-400']};
-  text-align: center;
-`
