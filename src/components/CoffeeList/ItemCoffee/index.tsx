@@ -5,23 +5,32 @@ import {
   DescriptionItem,
   ContainterSelectItem,
 } from './styles'
-
 import ItemCoffee1 from '../../../assets/ConffeeItens/CoffeeItem.png'
-export function ItemCoffee() {
+interface ItemCoffeeProps {
+  name: string
+  price: number
+  description: string
+  classification: string[]
+}
+export function ItemCoffee(props: ItemCoffeeProps) {
   return (
     <ItemCoffeeContainer>
       <div>
         <TitleTopItem>
           <img src={ItemCoffee1} alt="" />
-          <p>Tradicional</p>
+          <div>
+            {props.classification.map((item, i) => (
+              <p key={i}>{item}</p>
+            ))}
+          </div>
         </TitleTopItem>
         <DescriptionItem>
-          <strong>Expresso Tradicional</strong>
-          <p>O tradicional Café feito com água quente e grãos moídos</p>
+          <strong>{props.name}</strong>
+          <p>{props.description}</p>
         </DescriptionItem>
         <ContainterSelectItem>
           <span>
-            R$ <strong>9,90</strong>
+            R$ <strong>{(props.price / 100).toFixed(2)}</strong>
           </span>
           <ButtonChangeQuantity />
         </ContainterSelectItem>

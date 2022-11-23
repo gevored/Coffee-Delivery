@@ -25,17 +25,22 @@ export const TitleTopItem = styled.span`
     height: 7.5rem;
   }
 
-  p {
-    background-color: ${(props) => props.theme['yellow-100']};
-    color: ${(props) => props.theme['yellow-400']};
-    border-radius: 100px;
-    margin: 12px;
-    padding: 2px 4px;
+  & > div {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    p {
+      background-color: ${(props) => props.theme['yellow-100']};
+      color: ${(props) => props.theme['yellow-400']};
+      border-radius: 100px;
 
-    font-family: 'Roboto' sans-serif;
-    font-size: 0.625rem;
-    line-height: 13px;
-    font-weight: 700;
+      padding: 4px 6px;
+
+      font-family: 'Roboto' sans-serif;
+      font-size: 0.625rem;
+      line-height: 13px;
+      font-weight: 700;
+    }
   }
 `
 
