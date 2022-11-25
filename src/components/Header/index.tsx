@@ -7,13 +7,17 @@ export function Header() {
   return (
     <HeaderContainer>
       <div>
-        <img src={Logo} alt="" />
+        <a href="/">
+          <img src={Logo} alt="" />
+        </a>
         <SideHeaderMenu>
           <span>
             <img src={Point} alt="" />
             <h1>Porto Alegre, RS</h1>
           </span>
-          <img src={Cart} alt="" />
+          <a href="/checkout">
+            <img src={Cart} alt="" />
+          </a>
         </SideHeaderMenu>
       </div>
     </HeaderContainer>

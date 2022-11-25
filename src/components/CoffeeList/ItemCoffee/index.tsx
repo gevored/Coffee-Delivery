@@ -5,12 +5,15 @@ import {
   DescriptionItem,
   ContainterSelectItem,
 } from './styles'
+
 import ItemCoffee1 from '../../../assets/ConffeeItens/CoffeeItem.png'
 interface ItemCoffeeProps {
   name: string
   price: number
   description: string
   classification: string[]
+  id: string
+  qtd?: number
 }
 export function ItemCoffee(props: ItemCoffeeProps) {
   return (
@@ -32,7 +35,7 @@ export function ItemCoffee(props: ItemCoffeeProps) {
           <span>
             R$ <strong>{(props.price / 100).toFixed(2)}</strong>
           </span>
-          <ButtonChangeQuantity />
+          <ButtonChangeQuantity coffee={{ ...props }} />
         </ContainterSelectItem>
       </div>
     </ItemCoffeeContainer>

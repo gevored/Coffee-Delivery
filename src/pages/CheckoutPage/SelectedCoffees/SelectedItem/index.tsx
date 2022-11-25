@@ -9,16 +9,27 @@ import {
 import CoffeeItem from '../../../../assets/ConffeeItens/CoffeeItem.png'
 import IconTrash from '../../../../assets/Images/IconTrash.png'
 
-export function SelectedItem() {
+interface SelectedItemProps {
+  coffee: {
+    name: string
+    price: number
+    description: string
+    classification: string[]
+    id: string
+    qtd?: number
+  }
+}
+
+export function SelectedItem({ coffee }: SelectedItemProps) {
   return (
     <>
       <SelectedItemContainer>
         <img src={CoffeeItem} alt="" />
 
         <div>
-          <h1>Expresso Tradicional</h1>
+          <h1>{coffee.name}</h1>
           <SetButtons>
-            <IncreaseDecreaseButton />
+            <IncreaseDecreaseButton coffee={{ ...coffee }} />
             <RemoveButton>
               <img src={IconTrash} alt="" />
               <p>REMOVER</p>
