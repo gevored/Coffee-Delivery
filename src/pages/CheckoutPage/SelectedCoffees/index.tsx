@@ -2,22 +2,21 @@ import { SelectedCoffeesContainer, ConfirmButton } from './styles'
 import { ListItems } from './ListItems'
 import { TotalValue } from './TotalValue'
 import { useFormContext } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { FormSchemaType } from '../../../context/formContext'
+import { useContext } from 'react'
+import { CreateContextCaffe } from '../../../context/cartContext'
+// import { FormScemaType } from '../../../context/formContext'
+// import { resolvePath } from 'react-router-dom'
 
-interface IForm {
-  fieldForm?: {
-    CEP: string
-    adress: string
-    number: string
-    area: string
-    city: string
-    uf: string
-  }
-}
 export function SelectedCoffees() {
-  const { handleSubmit } = useFormContext()
+  const { handleSubmit } = useFormContext<FormSchemaType>()
+  const { saveFormData } = useContext(CreateContextCaffe)
+  const navigate = useNavigate()
 
-  const handleConfirmationPayment = (data: IForm) => {
-    console.log(data)
+  const handleConfirmationPayment = (data: FormSchemaType) => {
+    saveFormData(data)
+    navigate('/success')
   }
 
   return (

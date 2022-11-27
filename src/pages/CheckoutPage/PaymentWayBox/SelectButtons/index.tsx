@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 
 export function SelectButton() {
-  const [typePayment, setTypePayment] = useState('')
+  const [typePayment, setTypePayment] = useState('Cartão de Crédito')
 
   function handleSelectTypePayment(payment: string) {
     setTypePayment(payment)
@@ -15,14 +15,14 @@ export function SelectButton() {
   return (
     <ContainerListButtons>
       <BoxButton
-        onClick={() => handleSelectTypePayment('CREDITO')}
-        isSelected={typePayment === 'CREDITO'}
+        onClick={() => handleSelectTypePayment('Cartão de Crédito')}
+        isSelected={typePayment === 'Cartão de Crédito'}
       >
         <img src={CreditCartIcon} alt="" />
         <label>
           <Button
-            checked={typePayment === 'CREDITO'}
-            {...register('radio_payment_method')}
+            checked={typePayment === 'Cartão de Crédito'}
+            {...register('radioPaymentMethod')}
             value={typePayment}
           />
           CARTÃO DE CRÉDITO
@@ -30,14 +30,14 @@ export function SelectButton() {
       </BoxButton>
 
       <BoxButton
-        onClick={() => handleSelectTypePayment('DEBITO')}
-        isSelected={typePayment === 'DEBITO'}
+        onClick={() => handleSelectTypePayment('Cartão de Débito')}
+        isSelected={typePayment === 'Cartão de Débito'}
       >
         <img src={DebitCardIcon} alt="" />
         <label>
           <Button
-            checked={typePayment === 'DEBITO'}
-            {...register('radio_payment_method')}
+            checked={typePayment === 'Cartão de Débito'}
+            {...register('radioPaymentMethod')}
             value={typePayment}
           />
           CARTÃO DE DÉBITO
@@ -45,14 +45,14 @@ export function SelectButton() {
       </BoxButton>
 
       <BoxButton
-        onClick={() => handleSelectTypePayment('CASH')}
-        isSelected={typePayment === 'CASH'}
+        onClick={() => handleSelectTypePayment('Dinheiro')}
+        isSelected={typePayment === 'Dinheiro'}
       >
         <img src={CashIcon} alt="" />
         <label>
           <Button
-            checked={typePayment === 'CASH'}
-            {...register('radio_payment_method')}
+            checked={typePayment === 'Dinheiro'}
+            {...register('radioPaymentMethod')}
             value={typePayment}
           />
           DINHEIRO

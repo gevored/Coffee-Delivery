@@ -10,10 +10,15 @@ import {
   InputUF,
   FormContainer,
 } from './styles'
+import { ErrorMessage } from '@hookform/error-message'
 
 export function Form() {
-  const { register } = useFormContext()
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext()
 
+  console.log(errors)
   return (
     <FormContainer>
       <TitleForm />
@@ -25,10 +30,13 @@ export function Form() {
         </div>
 
         <div>
+          <ErrorMessage errors={errors} name="number_street" />
           <InputDefault
             placeholder="Número"
-            type="text"
-            {...register('number_street')}
+            type="string"
+            {...register('numberStreet', {
+              valueAsNumber: true,
+            })}
           />
           <InputComplement
             placeholder="Complemento"

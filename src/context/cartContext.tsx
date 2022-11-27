@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState, useEffect } from 'react'
+import { FormSchemaType } from './formContext'
 import axios from 'axios'
 interface ItemCoffeeProps {
   id: string
@@ -19,15 +20,19 @@ interface CaffeContextProps {
     qtd: number,
     CoffeeSelected: CoffeSelectedProps
   ) => void
+  saveFormData: (form: FormSchemaType) => void
+  formData?: FormSchemaType
 }
 interface ContextCaffeProps {
   children: ReactNode
 }
 export const CreateContextCaffe = createContext<CaffeContextProps>({
   modifyCoffeeSelected: () => {},
+  saveFormData: () => {},
 })
 
 export function ContextCaffe({ children }: ContextCaffeProps) {
+  const [formData, setFormData] = useState({} as FormSchemaType)
   const listCoffeesSelectedStorage = JSON.parse(
     localStorage.getItem('@coffe-delivery-1.0/listCoffeesSelected')!
   ) as CoffeSelectedProps[]
@@ -127,12 +132,17 @@ export function ContextCaffe({ children }: ContextCaffeProps) {
     }
   }, [])
 
+  function saveFormData(form: FormSchemaType) {
+    setFormData(form)
+  }
   return (
     <CreateContextCaffe.Provider
       value={{
         initialListCaffes: listCaffes,
         modifyCoffeeSelected: SelectCoffee,
         selectedListCaffes: listCaffesSelected,
+        formData,
+        saveFormData,
       }}
     >
       {children}

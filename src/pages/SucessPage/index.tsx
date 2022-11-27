@@ -3,6 +3,9 @@ import DeliveryPerson from '../../assets/Images/DeliveryPerson.png'
 import PointPurpleFullIcon from '../../assets/Images/PointPurpleFullIcon.png'
 import TimeFullIcon from '../../assets/Images/TimeFullIcon.png'
 import CashFullIcon from '../../assets/Images/CashFullIcon.png'
+import { useContext } from 'react'
+import { CreateContextCaffe } from '../../context/cartContext'
+import { FormSchemaType } from '../../context/formContext'
 
 import {
   RowInfo,
@@ -12,6 +15,10 @@ import {
   InfoContet,
 } from './styles'
 export function SucessPage() {
+  const { formData } = useContext(CreateContextCaffe)
+  const { street, numberStreet, city, UF, area, radioPaymentMethod } =
+    formData as FormSchemaType
+  console.log(formData)
   return (
     <>
       <Header />
@@ -28,9 +35,9 @@ export function SucessPage() {
                 <img src={PointPurpleFullIcon} alt="" />
                 <span>
                   <p>
-                    Entrega em <strong>Rua João Daniel Martinelli,102 </strong>
+                    Entrega em <strong>{`${street},${numberStreet} `}</strong>
                   </p>
-                  <p>Farrapos - Porto ALegre, RS</p>
+                  <p>{`${area} - ${city}, ${UF}`}</p>
                 </span>
               </RowInfo>
               <RowInfo>
@@ -47,7 +54,7 @@ export function SucessPage() {
                 <span>
                   <p>Pagamento na entrega</p>
                   <p>
-                    <strong>Cartão de Crédito</strong>
+                    <strong>{radioPaymentMethod}</strong>
                   </p>
                 </span>
               </RowInfo>

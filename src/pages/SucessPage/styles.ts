@@ -34,7 +34,7 @@ export const TitleDelivery = styled.div`
 export const SetInfo = styled.div`
   border: double 1px transparent;
   border-radius: 6px 36px;
-
+  min-width: 526px;
   background-image: linear-gradient(white, white),
     linear-gradient(
       to right,
