@@ -1,6 +1,18 @@
 import styled from 'styled-components'
 
-export const Button = styled.button`
+export const ContainerListButtons = styled.div`
+  gap: 0.5rem;
+  display: flex;
+  label {
+    font-family: 'Roboto';
+    font-size: 0.75rem;
+    line-height: 19.2px;
+    font-weight: 400;
+    color: ${(props) => props.theme['brown-400']};
+  }
+`
+
+export const Button = styled.input.attrs({ type: 'radio' })`
   all: unset;
 
   font-family: 'Roboto';
@@ -13,6 +25,7 @@ export const Button = styled.button`
 interface BoxButtonProps {
   isSelected?: boolean
 }
+
 export const BoxButton = styled.div<BoxButtonProps>`
   cursor: pointer;
   border: 1px solid transparent;
@@ -35,9 +48,4 @@ export const BoxButton = styled.div<BoxButtonProps>`
     height: 16px;
     width: 16px;
   }
-`
-
-export const ContainerListButtons = styled.div`
-  gap: 0.5rem;
-  display: flex;
 `

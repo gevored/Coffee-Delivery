@@ -1,4 +1,5 @@
 import { TitleForm } from './TitleForm'
+import { useFormContext } from 'react-hook-form'
 import {
   FormFill,
   InputCEP,
@@ -9,29 +10,40 @@ import {
   InputUF,
   FormContainer,
 } from './styles'
+
 export function Form() {
+  const { register } = useFormContext()
+
   return (
     <FormContainer>
       <TitleForm />
 
       <FormFill action="">
         <div>
-          <InputCEP placeholder="CEP" type="text" name="cep" />
-          <InputStreet placeholder="Rua " type="text" name="street" />
+          <InputCEP placeholder="CEP" type="text" {...register('cep')} />
+          <InputStreet placeholder="Rua " type="text" {...register('street')} />
         </div>
 
         <div>
-          <InputDefault placeholder="Número" type="text" name="number" />
+          <InputDefault
+            placeholder="Número"
+            type="text"
+            {...register('number_street')}
+          />
           <InputComplement
             placeholder="Complemento"
             type="text"
-            name="complement"
+            {...register('complement')}
           />
         </div>
         <div>
-          <InputDefault placeholder="Bairro" type="text" name="district" />
-          <InputCity placeholder="Cidade" type="text" name="city" />
-          <InputUF placeholder="UF" type="text" name="UF" />
+          <InputDefault
+            placeholder="Bairro"
+            type="text"
+            {...register('area')}
+          />
+          <InputCity placeholder="Cidade" type="text" {...register('city')} />
+          <InputUF placeholder="UF" type="text" {...register('UF')} />
         </div>
       </FormFill>
     </FormContainer>

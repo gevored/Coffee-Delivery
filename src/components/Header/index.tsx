@@ -2,22 +2,23 @@ import { HeaderContainer, SideHeaderMenu } from './styles'
 import Logo from '../../assets/Images/Logo.svg'
 import Cart from '../../assets/Images/Cart.svg'
 import Point from '../../assets/Images/point.png'
+import { Link } from 'react-router-dom'
 
 export function Header() {
   return (
     <HeaderContainer>
       <div>
-        <a href="/">
+        <Link to="/">
           <img src={Logo} alt="" />
-        </a>
+        </Link>
         <SideHeaderMenu>
           <span>
             <img src={Point} alt="" />
             <h1>Porto Alegre, RS</h1>
           </span>
-          <a href="/checkout">
+          <Link to="/checkout">
             <img src={Cart} alt="" />
-          </a>
+          </Link>
         </SideHeaderMenu>
       </div>
     </HeaderContainer>

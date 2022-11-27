@@ -5,4 +5,6 @@ export const ListItemsContainer = styled.div`
   flex-direction: column;
   gap: 24px;
   height: 208px;
+
+  overflow-y: scroll;
 `

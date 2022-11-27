@@ -3,6 +3,7 @@ import CreditCartIcon from '../../../../assets/Images/CreditCartIcon.png'
 import DebitCardIcon from '../../../../assets/Images/DebitCardIcon.png'
 import CashIcon from '../../../../assets/Images/CashIcon.png'
 import { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
 
 export function SelectButton() {
   const [typePayment, setTypePayment] = useState('')
@@ -10,7 +11,7 @@ export function SelectButton() {
   function handleSelectTypePayment(payment: string) {
     setTypePayment(payment)
   }
-
+  const { register } = useFormContext()
   return (
     <ContainerListButtons>
       <BoxButton
@@ -18,7 +19,14 @@ export function SelectButton() {
         isSelected={typePayment === 'CREDITO'}
       >
         <img src={CreditCartIcon} alt="" />
-        <Button>CATÃO DE CRÉDIO</Button>
+        <label>
+          <Button
+            checked={typePayment === 'CREDITO'}
+            {...register('radio_payment_method')}
+            value={typePayment}
+          />
+          CARTÃO DE CRÉDITO
+        </label>
       </BoxButton>
 
       <BoxButton
@@ -26,7 +34,14 @@ export function SelectButton() {
         isSelected={typePayment === 'DEBITO'}
       >
         <img src={DebitCardIcon} alt="" />
-        <Button>CARTÃO DE DÉBITO</Button>
+        <label>
+          <Button
+            checked={typePayment === 'DEBITO'}
+            {...register('radio_payment_method')}
+            value={typePayment}
+          />
+          CARTÃO DE DÉBITO
+        </label>
       </BoxButton>
 
       <BoxButton
@@ -34,7 +49,14 @@ export function SelectButton() {
         isSelected={typePayment === 'CASH'}
       >
         <img src={CashIcon} alt="" />
-        <Button>DINHEIRO</Button>
+        <label>
+          <Button
+            checked={typePayment === 'CASH'}
+            {...register('radio_payment_method')}
+            value={typePayment}
+          />
+          DINHEIRO
+        </label>
       </BoxButton>
     </ContainerListButtons>
   )
