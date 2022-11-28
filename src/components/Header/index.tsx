@@ -1,10 +1,19 @@
-import { HeaderContainer, SideHeaderMenu } from './styles'
+import { HeaderContainer, SideHeaderMenu, SpanCart, BoxCart } from './styles'
 import Logo from '../../assets/Images/Logo.svg'
 import Cart from '../../assets/Images/Cart.svg'
 import Point from '../../assets/Images/point.png'
 import { Link } from 'react-router-dom'
+import { CreateContextCaffe } from '../../context/cartContext'
+import { useContext } from 'react'
 
 export function Header() {
+  const { selectedListCaffes } = useContext(CreateContextCaffe)
+
+  const countItens = selectedListCaffes?.reduce(
+    (partialSum, obj) => partialSum + obj.qtd!,
+    0
+  )
+
   return (
     <HeaderContainer>
       <div>
@@ -17,7 +26,10 @@ export function Header() {
             <h1>Porto Alegre, RS</h1>
           </span>
           <Link to="/checkout">
-            <img src={Cart} alt="" />
+            <BoxCart>
+              <img src={Cart} alt="" />
+              <SpanCart>{countItens}</SpanCart>
+            </BoxCart>
           </Link>
         </SideHeaderMenu>
       </div>

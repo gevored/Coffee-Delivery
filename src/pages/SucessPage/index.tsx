@@ -18,11 +18,10 @@ export function SucessPage() {
   const { formData } = useContext(CreateContextCaffe)
   const { street, numberStreet, city, UF, area, radioPaymentMethod } =
     formData as FormSchemaType
-  console.log(formData)
+
   return (
     <>
       <Header />
-
       <SucessPageContainer>
         <TitleDelivery>
           <h1>Uhu! Pedido confirmado</h1>

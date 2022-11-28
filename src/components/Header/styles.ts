@@ -10,10 +10,14 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  div {
+  & > div {
     display: flex;
     width: 100%;
     justify-content: space-between;
+  }
+
+  a {
+    all: unset;
   }
 `
 
@@ -23,7 +27,7 @@ export const SideHeaderMenu = styled.span`
   gap: 0.5rem;
   align-items: center;
 
-  span {
+  & > span {
     height: 2.375rem;
     display: flex;
     border-radius: 6px;
@@ -37,4 +41,33 @@ export const SideHeaderMenu = styled.span`
       font-size: 0.8rem;
     }
   }
+`
+
+export const BoxCart = styled.div`
+  position: relative;
+`
+
+export const SpanCart = styled.span`
+  color: ${(props) => props.theme.background};
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+
+  width: 20px;
+  height: 20px;
+  background-color: ${(props) => props.theme['orange-400']};
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  img {
+    z-index: -1;
+    position: relative;
+  }
+
+  position: absolute;
+  top: -5px;
+  left: 30px;
 `
