@@ -27,6 +27,7 @@ export const SetButtons = styled.span`
 `
 
 export const RemoveButton = styled.div`
+  cursor: pointer;
   padding-left: 5px;
   gap: 0.2rem;
   height: 32px;

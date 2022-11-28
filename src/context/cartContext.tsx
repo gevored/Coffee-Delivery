@@ -22,6 +22,7 @@ interface CaffeContextProps {
   ) => void
   saveFormData: (form: FormSchemaType) => void
   formData?: FormSchemaType
+  removeItemSelected: (id: string) => void
 }
 interface ContextCaffeProps {
   children: ReactNode
@@ -29,6 +30,7 @@ interface ContextCaffeProps {
 export const CreateContextCaffe = createContext<CaffeContextProps>({
   modifyCoffeeSelected: () => {},
   saveFormData: () => {},
+  removeItemSelected: () => {},
 })
 
 export function ContextCaffe({ children }: ContextCaffeProps) {
@@ -135,6 +137,12 @@ export function ContextCaffe({ children }: ContextCaffeProps) {
   function saveFormData(form: FormSchemaType) {
     setFormData(form)
   }
+
+  function removeItemSelected(id: string) {
+    const arrayUpdated = listCaffesSelected.filter((item) => item.id !== id)
+    UpdateListCoffees(id, 0)
+    InsertSelectedCoffeesToLocalStorage(arrayUpdated)
+  }
   return (
     <CreateContextCaffe.Provider
       value={{
@@ -143,6 +151,7 @@ export function ContextCaffe({ children }: ContextCaffeProps) {
         selectedListCaffes: listCaffesSelected,
         formData,
         saveFormData,
+        removeItemSelected,
       }}
     >
       {children}

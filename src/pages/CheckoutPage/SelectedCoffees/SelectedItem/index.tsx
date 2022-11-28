@@ -9,7 +9,8 @@ import {
 
 import CoffeeItem from '../../../../assets/ConffeeItens/CoffeeItem.png'
 import IconTrash from '../../../../assets/Images/IconTrash.png'
-
+import { useContext } from 'react'
+import { CreateContextCaffe } from '../../../../context/cartContext'
 interface SelectedItemProps {
   coffee: {
     name: string
@@ -22,6 +23,11 @@ interface SelectedItemProps {
 }
 
 export function SelectedItem({ coffee }: SelectedItemProps) {
+  const { removeItemSelected } = useContext(CreateContextCaffe)
+
+  function handleRemoveItem() {
+    removeItemSelected(coffee.id)
+  }
   return (
     <>
       <SelectedItemContainer>
@@ -31,7 +37,7 @@ export function SelectedItem({ coffee }: SelectedItemProps) {
           <h1>{coffee.name}</h1>
           <SetButtons>
             <IncreaseDecreaseButton coffee={{ ...coffee }} />
-            <RemoveButton>
+            <RemoveButton onClick={handleRemoveItem}>
               <img src={IconTrash} alt="" />
               <p>REMOVER</p>
             </RemoveButton>
